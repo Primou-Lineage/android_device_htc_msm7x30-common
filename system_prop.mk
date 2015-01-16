@@ -52,6 +52,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Memory
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.low_ram=true \
+	persist.sys.force_highendgfx=true \
 	ro.sys.fw.bg_apps_limit=14 \
 	ro.config.max_starting_bg=6 \
 	config.disable_atlas=true

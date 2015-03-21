@@ -133,8 +133,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # For applications to determine if they should turn off specific memory-intensive
 # features that work poorly on low-memory devices.
-#PRODUCT_PROPERTY_OVERRIDES += \
-#	ro.config.low_ram=true
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.config.low_ram=true
 
 # Reduce background apps limit to 14 on low-tier devices
 PRODUCT_PROPERTY_OVERRIDES += \

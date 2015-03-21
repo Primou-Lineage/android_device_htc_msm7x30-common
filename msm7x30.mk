@@ -79,7 +79,7 @@ PRODUCT_PACKAGES += \
 	libOmxCore \
 	libOmxVdec \
 	libOmxVenc \
-	libc2dcolorconvert \
+	libdivxdrmdecrypt \
 	libstagefrighthw
 
 
@@ -103,6 +103,9 @@ PRODUCT_PACKAGES += \
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+# Misc
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.com.google.gmsversion=4.0_r1
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number.

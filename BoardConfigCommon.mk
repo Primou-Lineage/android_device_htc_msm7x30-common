@@ -35,7 +35,6 @@ BOARD_USES_LEGACY_ALSA_AUDIO := true
 
 # Display
 TARGET_QCOM_DISPLAY_VARIANT := legacy
-BOARD_EGL_CFG := device/htc/msm7x30-common/rootdir/system/lib/egl/egl.cfg
 TARGET_USES_ION := true
 TARGET_USES_C2D_COMPOSITION := true
 USE_OPENGL_RENDERER := true

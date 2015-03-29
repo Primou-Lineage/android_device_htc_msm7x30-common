@@ -103,4 +103,4 @@ PRODUCT_PACKAGES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Proprietary vendor tree
-$(call inherit-product, vendor/htc/msm7x30-common/msm7x30-vendor.mk)
+$(call inherit-product, vendor/htc/msm7x30-common/msm7x30-common-vendor.mk)

@@ -94,9 +94,12 @@ PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory \
 	libsurfaceflinger_client
 
+
+# DeviceSettings
+#PRODUCT_PACKAGES += DeviceSettings
+
 # Torch
-PRODUCT_PACKAGES += \
-	Torch
+PRODUCT_PACKAGES += Torch
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

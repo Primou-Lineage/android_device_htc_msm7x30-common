@@ -70,7 +70,6 @@ PRODUCT_PACKAGES += \
 	libaudioparameter
 
 
-
 # Video
 PRODUCT_PACKAGES += \
 	copybit.msm7x30 \
@@ -84,7 +83,7 @@ PRODUCT_PACKAGES += \
 	libOmxCore \
 	libOmxVdec \
 	libOmxVenc \
-	libdivxdrmdecrypt \
+	libc2dcolorconvert \
 	libstagefrighthw
 
 

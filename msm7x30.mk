@@ -23,6 +23,13 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 # System Properties
 -include $(COMMON_PATH)/system_prop.mk
 
+# Ramdisk files
+PRODUCT_PACKAGES += \
+	fstab.qcom \
+	init.qcom.rc \
+	init.qcom.usb.rc \
+	ueventd.qcom.rc
+
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \

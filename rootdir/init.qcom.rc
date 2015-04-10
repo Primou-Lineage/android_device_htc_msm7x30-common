@@ -1,5 +1,5 @@
 import init.target.rc
-import init.htc7x30.usb.rc
+import init.qcom.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -20,8 +20,8 @@ on init
     symlink /storage/sdcard0 /storage/primary/legacy
 
 on fs
-    mount_all /fstab.htc7x30
-    swapon_all /fstab.htc7x30
+    mount_all /fstab.qcom
+    swapon_all /fstab.qcom
 
 on post-fs-data
     # Set indication (checked by vold) that we have finished this action

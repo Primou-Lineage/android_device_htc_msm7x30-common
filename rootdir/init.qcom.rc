@@ -158,6 +158,7 @@ on property:sys.boot_completed=1
 
 on property:init.svc.bootanim=running
     write /sys/block/mmcblk0/queue/scheduler noop
+    write /sys/class/leds/lcd-backlight/brightness 30
 
 on property:init.svc.bootanim=stopped
     write /sys/block/mmcblk0/queue/scheduler row

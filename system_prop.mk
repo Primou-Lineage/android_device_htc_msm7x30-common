@@ -45,7 +45,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-	audio.offload.disable=1 \
 	persist.sys.media.use-awesome=true
 
 # UMS

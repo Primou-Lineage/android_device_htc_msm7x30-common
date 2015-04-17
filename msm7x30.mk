@@ -79,7 +79,6 @@ PRODUCT_PACKAGES += \
 	hwcomposer.msm7x30  \
 	memtrack.msm7x30
 
-
 # Media
 PRODUCT_PACKAGES += \
 	libOmxCore \
@@ -106,6 +105,7 @@ PRODUCT_PACKAGES += librpc
 
 # Device-Specific HALs
 PRODUCT_PACKAGES += \
+	gps.msm7x30 \
 	power.msm7x30
 
 # Misc

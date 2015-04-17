@@ -96,7 +96,7 @@ PRODUCT_PACKAGES += \
 
 
 # DeviceSettings
-#PRODUCT_PACKAGES += DeviceSettings
+PRODUCT_PACKAGES += DeviceSettings
 
 # Torch
 PRODUCT_PACKAGES += Torch

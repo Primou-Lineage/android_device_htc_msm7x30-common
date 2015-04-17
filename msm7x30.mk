@@ -115,7 +115,7 @@ PRODUCT_PACKAGES += com.android.future.usb.accessory
 PRODUCT_PACKAGES += LiveWallpapersPicker
 
 # DeviceSettings
-#PRODUCT_PACKAGES += DeviceSettings
+PRODUCT_PACKAGES += DeviceSettings
 
 
 # Use ART small mode

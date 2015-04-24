@@ -121,6 +121,7 @@ ifeq ($(USE_DEXPREOPT),true)
     ifeq ($(HOST_OS),linux)
         ifeq ($(WITH_DEXPREOPT),)
             WITH_DEXPREOPT := true
+            WITH_DEXPREOPT_COMP := true
         endif
     endif
 endif

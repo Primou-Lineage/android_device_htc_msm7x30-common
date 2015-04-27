@@ -43,10 +43,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.egl.hw=1 \
 	debug.egl.recordable.rgba8888=1
 
-# Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.media.use-awesome=true
-
 # UMS
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.sys.usb.default.config=mtp \

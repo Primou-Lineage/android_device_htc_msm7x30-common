@@ -3,6 +3,7 @@ import init.qcom.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
+    chmod 666 /proc/cmdline
 
 on init
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw

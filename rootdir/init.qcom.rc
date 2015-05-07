@@ -104,9 +104,9 @@ on boot
     write /proc/sys/vm/vfs_cache_pressure 60
 
     # KSM
-    write /sys/kernel/mm/ksm/pages_to_scan 100
-    write /sys/kernel/mm/ksm/sleep_millisecs 500
-    write /sys/kernel/mm/ksm/deferred_timer 1
+    write /sys/kernel/mm/uksm/max_cpu_percentage 75
+    write /sys/kernel/mm/uksm/sleep_millisecs 500
+    write /sys/kernel/mm/uksm/run 1
 
     # Allow system to have access to /dev/tun directory
     mkdir /dev/tun 0770 system vpn

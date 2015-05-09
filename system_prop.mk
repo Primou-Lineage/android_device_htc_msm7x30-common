@@ -49,6 +49,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.egl.hw=1 \
 	debug.egl.recordable.rgba8888=1
 
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+	audio.offload.disable=1
+
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+	camera2.portability.force_api=1
+
 # UMS
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.sys.usb.default.config=mtp \

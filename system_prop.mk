@@ -51,7 +51,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.media.use-awesome=true
+	audio.offload.disable=1
+
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+	camera2.portability.force_api=1
 
 # UMS
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \

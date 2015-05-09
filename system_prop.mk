@@ -29,6 +29,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.disable.power.collapse=1 \
 	ro.telephony.ril.v3=signalstrength
 
+# Radio
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.telephony.default_network=0 \
+	mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2 \
+	ro.use_data_netmgrd=true
+
 # WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \

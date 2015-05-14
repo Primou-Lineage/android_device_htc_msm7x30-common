@@ -125,6 +125,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-flags=--no-watch-dog \
 	dalvik.vm.image-dex2oat-filter=speed
 
+# Set our own VM heap values
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.heapstartsize=8m \
+	dalvik.vm.heapgrowthlimit=96m \
+	dalvik.vm.heapsize=256m \
+	dalvik.vm.heaptargetutilization=0.75 \
+	dalvik.vm.heapminfree=2m \
+	dalvik.vm.heapmaxfree=8m
 
 # Proprietary vendor tree
 $(call inherit-product, vendor/htc/msm7x30-common/msm7x30-common-vendor.mk)

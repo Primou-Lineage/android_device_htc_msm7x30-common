@@ -17,8 +17,6 @@ PRODUCT_PACKAGE_OVERLAYS += device/htc/msm7x30-common/overlay
 
 COMMON_PATH := device/htc/msm7x30-common
 
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
-
 $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 # System Properties
@@ -126,6 +124,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.image-dex2oat-filter=speed
 
 # Set our own VM heap values
+# See frameworks/native/build/ for presets
 PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapstartsize=8m \
 	dalvik.vm.heapgrowthlimit=96m \

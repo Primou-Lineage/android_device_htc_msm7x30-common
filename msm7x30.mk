@@ -104,5 +104,10 @@ PRODUCT_PACKAGES += Torch
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+
+# Set releasetype to snapshot
+PRODUCT_PROPERTY_OVERRIDES += ro.ap.releasetype=SNAPSHOT
+
+
 # Proprietary vendor tree
 $(call inherit-product, vendor/htc/msm7x30-common/msm7x30-common-vendor.mk)

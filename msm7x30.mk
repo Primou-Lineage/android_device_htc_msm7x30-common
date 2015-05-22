@@ -133,5 +133,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapminfree=2m \
 	dalvik.vm.heapmaxfree=8m
 
+
+# Set releasetype to snapshot
+PRODUCT_PROPERTY_OVERRIDES += ro.ap.releasetype=SNAPSHOT
+
+
 # Proprietary vendor tree
 $(call inherit-product, vendor/htc/msm7x30-common/msm7x30-common-vendor.mk)

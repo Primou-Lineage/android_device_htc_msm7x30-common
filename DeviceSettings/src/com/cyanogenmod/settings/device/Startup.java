@@ -18,5 +18,6 @@ public class Startup extends BroadcastReceiver {
         DoubleTap2Wake.restore(context);
         MinDuration.restore(context);
         MaxDuration.restore(context);
+        TapHeight.restore(context);
     }
 }

@@ -93,5 +93,16 @@
             settings:unitsRight="ms"
             android:defaultValue="500"
             android:dependency="doubletap2wake" />
+        <com.cyanogenmod.settings.device.SeekBarPreference
+            android:key="dt2w_tap_height"
+            android:title="@string/dt2w_tap_height_title"
+            android:summary="@string/dt2w_tap_height_summary"
+            android:max="1800"
+            settings:min="20"
+            settings:interval="20"
+            settings:unitsLeft=""
+            settings:unitsRight="px"
+            android:defaultValue="500"
+            android:dependency="doubletap2wake" />
     </PreferenceCategory>
 </PreferenceScreen>

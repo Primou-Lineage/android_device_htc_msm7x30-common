@@ -26,4 +26,6 @@
     <string name="dt2w_min_duration_summary">Adjust minimum duration</string>
     <string name="dt2w_max_duration_title">Maximum tap duration</string>
     <string name="dt2w_max_duration_summary">Adjust maximum duration</string>
+    <string name="dt2w_tap_height_title">Allowed height</string>
+    <string name="dt2w_tap_height_summary">Adjust allowed tapping height</string>
 </resources>

@@ -40,6 +40,7 @@ public class DevicePreferenceActivity extends PreferenceFragment implements
     public static final String KEY_DOUBLETAP2WAKE = "doubletap2wake";
     public static final String KEY_MIN_DURATION = "dt2w_min_duration";
     public static final String KEY_MAX_DURATION = "dt2w_max_duration";
+    public static final String KEY_TAP_HEIGHT = "dt2w_tap_height";
 
     private Context context;
     private CheckBoxPreference mDynFsync;
@@ -52,6 +53,7 @@ public class DevicePreferenceActivity extends PreferenceFragment implements
     private SwitchPreference mDoubleTap2Wake;
     private SeekBarPreference mMinDuration;
     private SeekBarPreference mMaxDuration;
+    private SeekBarPreference mTapHeight;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,6 +103,10 @@ public class DevicePreferenceActivity extends PreferenceFragment implements
         mMaxDuration = (SeekBarPreference) findPreference(KEY_MAX_DURATION);
         mMaxDuration.setValue(MaxDuration.getValue());
         mMaxDuration.setOnPreferenceChangeListener(this);
+
+        mTapHeight = (SeekBarPreference) findPreference(KEY_TAP_HEIGHT);
+        mTapHeight.setValue(TapHeight.getValue());
+        mTapHeight.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -163,6 +169,10 @@ public class DevicePreferenceActivity extends PreferenceFragment implements
         } else if (preference == mMaxDuration) {
             int duration = ((Integer)newValue).intValue();
             MaxDuration.setValue(context, duration);
+            return true;
+        } else if (preference == mTapHeight) {
+            int height = ((Integer)newValue).intValue();
+            TapHeight.setValue(context, height);
             return true;
         }
         return false;

@@ -21,10 +21,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.enable.sdr=1 \
 	ro.ril.enable.amr.wideband=1 \
 	ro.ril.enable.dtm=1 \
-	ro.ril.gprsclass=32 \
-	ro.ril.hsdpa.category=28 \
-	ro.ril.hsupa.category=9 \
-	ro.ril.hsxpa=3 \
+	ro.ril.gprsclass=12 \
+	ro.ril.hsdpa.category=10 \
+	ro.ril.hsupa.category=6 \
+	ro.ril.hsxpa=2 \
 	ro.ril.def.agps.mode=2 \
 	ro.ril.disable.power.collapse=1
 
@@ -60,13 +60,14 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Enable USB OTG interface
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true
+	persist.sys.isUsbOtgEnabled=true
 
 # Memory
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.low_ram=true \
-	ro.sys.fw.bg_apps_limit=14 \
-	ro.config.max_starting_bg=6
+	persist.sys.force_highendgfx=true \
+	ro.sys.fw.bg_apps_limit=16 \
+	ro.config.max_starting_bg=8
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -44,9 +44,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072 \
-	debug.composition.type=gpu \
 	debug.sf.hw=1 \
+	persist.sys.ui.hw=1 \
+	debug.performance.tuning=1 \
+	video.accelerate.hw=1 \
+	debug.egl.profiler=1 \
 	debug.egl.hw=1 \
+	debug.sf.no_hw_vsync=1 \
+	debug.composition.type=gpu \
+	dev.pm.dyn_samplingrate=1 \
+	ro.zygote.disable_gl_preload=true \
+	debug.mdpcomp.logs=0 \
 	debug.egl.recordable.rgba8888=1
 
 # Camera

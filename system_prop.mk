@@ -26,12 +26,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.hsupa.category=9 \
 	ro.ril.hsxpa=3 \
 	ro.ril.def.agps.mode=2 \
-	ro.ril.disable.power.collapse=1 \
-	ro.telephony.ril.v3=signalstrength
+	ro.ril.disable.power.collapse=1
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.default_network=0 \
+	ro.telephony.ril.v3=signalstrength \
 	mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2 \
 	ro.use_data_netmgrd=true
 
@@ -57,6 +57,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.sys.usb.default.config=mtp \
 	persist.sys.usb.config=mtp
+
+# Enable USB OTG interface
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.isUsbOtgEnabled=true
 
 # Memory
 PRODUCT_PROPERTY_OVERRIDES += \

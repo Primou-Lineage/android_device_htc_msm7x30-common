@@ -32,6 +32,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.default_network=0 \
 	ro.telephony.ril.v3=signalstrength \
+	ro.telephony.call_ring.multiple=false \
 	mobiledata.interfaces=gannet0,rmnet0,rmnet1,rmnet2 \
 	ro.use_data_netmgrd=true
 

@@ -40,8 +40,8 @@ on boot
     #write /sys/kernel/mm/uksm/run 1
 
     # Adaptive LMK
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+    #write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    #write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
 
     # Lower LCD backlight when booting
     write /sys/class/leds/lcd-backlight/brightness 30

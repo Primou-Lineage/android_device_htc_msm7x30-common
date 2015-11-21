@@ -66,12 +66,10 @@ PRODUCT_PACKAGES += camera.msm7x30
 
 # Audio
 PRODUCT_PACKAGES += \
-	audio.a2dp.default \
-	audio.usb.default \
-	audio_policy.msm7x30 \
-	audio.primary.msm7x30 \
-	libaudio-resampler \
-	libaudioparameter
+    audio.a2dp.default \
+    audio.primary.msm7x30 \
+    libaudio-resampler \
+    libaudioparameter
 
 # Graphics
 PRODUCT_PACKAGES += \

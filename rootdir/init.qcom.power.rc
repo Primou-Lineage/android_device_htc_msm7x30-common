@@ -38,5 +38,6 @@ on boot
 
 on property:sys.boot_completed=1
     write /sys/module/pm2/parameters/idle_sleep_mode 1
-    setprop sys.io.scheduler fiops
-    write /sys/block/mmcblk1/queue/scheduler fiops
+    setprop sys.io.scheduler bfq
+    write /sys/block/mmcblk1/queue/scheduler bfq
+    write /sys/block/mmcblk1/queue/iosched/slice_idle 0

@@ -125,9 +125,7 @@ PRODUCT_PACKAGES += LiveWallpapersPicker
 # DeviceSettings
 PRODUCT_PACKAGES += DeviceSettings
 
-
-# Use ART small mode and disable watchdog
-# http://source.android.com/devices/tech/dalvik/configure.html#with_art_small_mode
+# ART
 PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-filter=balanced \
 	dalvik.vm.dex2oat-flags=--no-watch-dog \

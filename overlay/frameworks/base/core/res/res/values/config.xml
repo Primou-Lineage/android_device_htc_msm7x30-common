@@ -233,21 +233,6 @@
          Force this to 1500 in case upstream changes it again to 1358 and breaks tethering.  -->
     <integer name="config_mobile_mtu">1500</integer>
 
-    <!-- Configure mobile tcp buffer sizes in the form:
-         rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
-         If no value is found for the rat-name in use, the system default will be applied.
-    -->
-    <string-array name="config_mobile_tcp_buffers">
-        <item>edge:4096,32768,220416,4096,32768,110208</item>
-        <item>gprs:4096,16384,32768,4096,11680,16384</item>
-        <item>umts:6144,87380,393216,6144,32768,283008</item>
-        <item>hsdpa:8192,87380,524288,8192,65536,393216</item>
-    </string-array>
-
-    <!-- Configure wifi tcp buffersizes in the form:
-         rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
-    <string name="config_wifi_tcp_buffers" translatable="false">8192,87380,524288,8192,87380,524288</string>
-
     <!-- Is the device LTE capable -->
     <bool name="config_lte_capable">false</bool>
     

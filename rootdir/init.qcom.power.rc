@@ -33,3 +33,11 @@ on property:sys.boot_completed=1
     setprop sys.io.scheduler bfq
     write /sys/block/mmcblk1/queue/scheduler bfq
     write /sys/block/mmcblk1/queue/iosched/slice_idle 0
+
+    # ZRAM
+    # Start ZRAM manually when the system has completed booting up
+    # because active ZRAM slows down app optimization significantly.
+    write /sys/block/zram0/comp_algorithm lz4
+    write /sys/block/zram0/disksize 128M
+    exec /system/bin/mkswap /dev/zram0
+    exec /system/bin/swapon /dev/zram0

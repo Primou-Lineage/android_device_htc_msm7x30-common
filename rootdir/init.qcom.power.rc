@@ -4,11 +4,13 @@ on boot
     write /sys/module/pm2/parameters/idle_sleep_mode 3
 
     # Tweak nand based on:
-    # http://wiki.osnexus.com/index.php?title=IO_Performance_Tuning#Storage_Pool_IO_Tuning_Overview
-    write /sys/block/mmcblk0/queue/read_ahead_kb 4
-    write /sys/block/mmcblk0/queue/nr_requests 2048
-    write /sys/block/mmcblk1/queue/read_ahead_kb 4
-    write /sys/block/mmcblk1/queue/nr_requests 2048
+    # https://wiki.mikejung.biz/Ubuntu_Performance_Tuning#File_System_and_Block_Device_Tweaks
+    write /sys/block/mmcblk0/queue/read_ahead_kb 1024
+    write /sys/block/mmcblk0/queue/nr_requests 256
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk1/queue/read_ahead_kb 1024
+    write /sys/block/mmcblk1/queue/nr_requests 256
+    write /sys/block/mmcblk1/queue/iostats 0
 
     # Flash storage isn't a good entropy source, and only causes locking
     # overhead in the kernel. Turn it off.

@@ -38,6 +38,7 @@ struct cm_power_module {
 };
 
 static char governor[20];
+static char max_freq[8];
 
 static int sysfs_read(char *path, char *s, int num_bytes)
 {
@@ -105,6 +106,21 @@ static int get_scaling_governor() {
     return 0;
 }
 
+static void get_max_freq() {
+    if (sysfs_read("/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
+                max_freq, sizeof(max_freq)) == -1) {
+        strcpy(max_freq, "1024000");
+    } else {
+        // Strip newline at the end.
+        int len = strlen(max_freq);
+
+        len--;
+
+        while (len >= 0 && (max_freq[len] == '\n' || max_freq[len] == '\r'))
+            max_freq[len--] = '\0';
+    }
+}
+
 static void cm_power_set_interactive(struct power_module *module, int on)
 {
     return;
@@ -115,10 +131,11 @@ static void configure_governor()
     cm_power_set_interactive(NULL, 1);
 
     if (strncmp(governor, "interactive", 11) == 0) {
+        get_max_freq();
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time", "40000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/io_is_busy", "1");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "90");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq", "1017600");
+        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq", max_freq);
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay", "90000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_rate", "30000");
     }

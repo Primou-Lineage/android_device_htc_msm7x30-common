@@ -129,7 +129,8 @@ PRODUCT_PACKAGES += DeviceSettings
 PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-filter=balanced \
 	dalvik.vm.dex2oat-flags=--no-watch-dog \
-	dalvik.vm.image-dex2oat-filter=speed
+	dalvik.vm.image-dex2oat-filter=speed \
+	dalvik.vm.image-dex2oat-flags=--no-watch-dog
 
 
 # Set releasetype to snapshot

@@ -27,9 +27,7 @@
 #include <hardware/power.h>
 
 #define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
-#define BOOSTPULSE_ONDEMAND "/sys/devices/system/cpu/cpufreq/ondemand/boostpulse"
 #define BOOSTPULSE_INTERACTIVE "/sys/devices/system/cpu/cpufreq/interactive/boostpulse"
-#define BOOSTPULSE_INTELLIACTIVE "/sys/devices/system/cpu/cpufreq/intelliactive/boostpulse"
 #define BOOSTPULSE_SMARTASS2 "/sys/devices/system/cpu/cpufreq/smartassV2/boost_pulse"
 
 struct cm_power_module {
@@ -116,29 +114,13 @@ static void configure_governor()
 {
     cm_power_set_interactive(NULL, 1);
 
-    if (strncmp(governor, "ondemand", 8) == 0) {
-        sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/up_threshold", "90");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/io_is_busy", "1");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor", "2");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/down_differential", "10");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/boostfreq", "1200000");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/ondemand/sampling_rate", "50000");
-
-    } else if (strncmp(governor, "interactive", 11) == 0) {
+    if (strncmp(governor, "interactive", 11) == 0) {
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/min_sample_time", "40000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/io_is_busy", "1");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load", "90");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq", "1200000");
+        sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/hispeed_freq", "1017600");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay", "90000");
         sysfs_write("/sys/devices/system/cpu/cpufreq/interactive/timer_rate", "30000");
-
-    } else if (strncmp(governor, "intelliactive", 13) == 0) {
-        sysfs_write("/sys/devices/system/cpu/cpufreq/intelliactive/min_sample_time", "40000");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/intelliactive/io_is_busy", "1");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/intelliactive/go_hispeed_load", "90");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/intelliactive/hispeed_freq", "1200000");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/intelliactive/above_hispeed_delay", "90000");
-        sysfs_write("/sys/devices/system/cpu/cpufreq/intelliactive/timer_rate", "30000"); 
     }
 }
 
@@ -153,12 +135,8 @@ static int boostpulse_open(struct cm_power_module *cm)
             ALOGE("Can't read scaling governor.");
             cm->boostpulse_warned = 1;
         } else {
-            if (strncmp(governor, "ondemand", 8) == 0)
-                cm->boostpulse_fd = open(BOOSTPULSE_ONDEMAND, O_WRONLY);
-            else if (strncmp(governor, "interactive", 11) == 0)
+            if (strncmp(governor, "interactive", 11) == 0)
                 cm->boostpulse_fd = open(BOOSTPULSE_INTERACTIVE, O_WRONLY);
-            else if (strncmp(governor, "intelliactive", 13) == 0)
-                cm->boostpulse_fd = open(BOOSTPULSE_INTELLIACTIVE, O_WRONLY);
             else if (strncmp(governor, "smartassV2", 10) == 0)
                 cm->boostpulse_fd = open(BOOSTPULSE_SMARTASS2, O_WRONLY);
 
@@ -229,23 +207,24 @@ static struct hw_module_methods_t power_module_methods = {
 };
 
 struct cm_power_module HAL_MODULE_INFO_SYM = {
-    base: {
-        common: {
-            tag: HARDWARE_MODULE_TAG,
-            module_api_version: POWER_MODULE_API_VERSION_0_2,
-            hal_api_version: HARDWARE_HAL_API_VERSION,
-            id: POWER_HARDWARE_MODULE_ID,
-            name: "CM Power HAL",
-            author: "The CyanogenMod Project",
-            methods: &power_module_methods,
+    .base = {
+        .common = {
+            .tag = HARDWARE_MODULE_TAG,
+            .module_api_version = POWER_MODULE_API_VERSION_0_2,
+            .hal_api_version = HARDWARE_HAL_API_VERSION,
+            .id = POWER_HARDWARE_MODULE_ID,
+            .name = "msm7x30 Power HAL",
+            .author = "The CyanogenMod Project",
+            .methods = &power_module_methods,
         },
-       init: cm_power_init,
-       setInteractive: cm_power_set_interactive,
-       powerHint: cm_power_hint,
+        .init = cm_power_init,
+        .setInteractive = cm_power_set_interactive,
+        .powerHint = cm_power_hint,
     },
 
-    lock: PTHREAD_MUTEX_INITIALIZER,
-    boostpulse_fd: -1,
-    boostpulse_warned: 0,
+    .lock = PTHREAD_MUTEX_INITIALIZER,
+    .boostpulse_fd = -1,
+    .boostpulse_warned = 0,
 };
+
 

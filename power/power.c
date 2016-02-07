@@ -176,17 +176,13 @@ static void cm_power_hint(struct power_module *module, power_hint_t hint,
     struct cm_power_module *cm = (struct cm_power_module *) module;
     char buf[80];
     int len;
-    int duration = 1;
 
     switch (hint) {
         case POWER_HINT_INTERACTION:
         case POWER_HINT_CPU_BOOST:
         case POWER_HINT_LAUNCH_BOOST:
             if (boostpulse_open(cm) >= 0) {
-                if (data != NULL)
-                    duration = (int) data;
-
-                snprintf(buf, sizeof(buf), "%d", duration);
+                snprintf(buf, sizeof(buf), "%d", 0);
                 len = write(cm->boostpulse_fd, buf, strlen(buf));
 
                 if (len < 0) {

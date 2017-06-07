@@ -16,5 +16,8 @@
     <bool name="profile_supported_hfpclient">false</bool>
     <bool name="profile_supported_avrcp_controller">false</bool>
     <bool name="profile_supported_a2dp_sink">false</bool>
+    <!--
+    Zennoe: device/htc/msm7x30-common/overlay/packages/apps/Bluetooth/res/values/config.xml:19: error: Resource at profile_supported_hidd appears in overlay but not in the base package; use <add-resource> to add.
     <bool name="profile_supported_hidd">false</bool>
+    -->
 </resources>

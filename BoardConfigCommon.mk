@@ -102,7 +102,9 @@ BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 # Use dlmalloc instead of jemalloc because it's
 # supposedly better in single-threaded applications
 # http://blog.poweredbytoast.com/memory-allocators
-MALLOC_IMPL := dlmalloc
+#--Zennoe: "Unsupported option MALLOC_IMPL" "Use `MALLOC_SVELTE := true` to configure jemalloc"
+#MALLOC_IMPL := dlmalloc
+MALLOC_SVELTE := true
 
 # rmt_storage
 BOARD_USES_LEGACY_MMAP := true
